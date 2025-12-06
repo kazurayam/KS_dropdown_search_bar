@@ -52,9 +52,21 @@ const handleInput = () => {
             link.classList.add("dropdown-item");
             link.href = "#";
             link.textContent = word;
+            link.addEventListener('click', handleSelection);
             listItem.appendChild(link);
             parentElement.appendChild(listItem);
         });
     }
 }
+const handleSelection = (event) => {
+    event.preventDefault();
+    if (event.target.tagName === 'a') {
+        const selectedValue =
+            event.target.textContent;
+        document
+            .getElementById('valueDisplay')
+            .textContent = selectedValue;
+    }
+}
+
 handleInput();

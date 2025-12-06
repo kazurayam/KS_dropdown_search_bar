@@ -5,6 +5,7 @@ import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import org.openqa.selenium.Keys as Keys
 
 TestObject makeTestObject(String id, String xpath) {
 	TestObject tObj = new TestObject(id)
@@ -25,6 +26,22 @@ WebUI.navigateToUrl(url)
 TestObject button = makeTestObject("button", "//button[@id='dropdownMenuButton1']")
 WebUI.click(button)
 
+// make sure the input field is present, then type a text 'ba' into the input field
+TestObject inputField = makeTestObject("inputField", "//input[@type='text']")
+WebUI.verifyElementPresent(inputField, 10)
 WebUI.delay(3)
-WebUI.closeBrowser() 
+
+// type a text 'ba' into the input field
+WebUI.sendKeys(inputField, "ba")
+
+//  click the 1st <li> element
+li1 = makeTestObject("li", "//ul/li[1]")
+WebUI.verifyElementPresent(li1, 10)
+WebUI.click(li1)
+
+// verify if the input field is filed with "banana"
+TestObject valueDisplay = makeTestObject("valueDisplay", "//*[@id='valueDisplay']")
+assert WebUI.getText(valueDisplay) == "banana"
+
+//WebUI.closeBrowser() 
 
