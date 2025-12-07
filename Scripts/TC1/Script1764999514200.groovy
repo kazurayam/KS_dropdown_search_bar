@@ -19,7 +19,8 @@ String url = html.toFile().toURI().toURL().toExternalForm()
 
 // open the page
 WebUI.openBrowser('')
-WebUI.maximizeWindow()
+//WebUI.maximizeWindow()
+WebUI.setViewPortSize(800, 600)
 WebUI.navigateToUrl(url)
 
 // click the button
