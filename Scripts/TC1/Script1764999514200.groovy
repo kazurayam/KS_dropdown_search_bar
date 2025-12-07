@@ -19,14 +19,14 @@ String url = html.toFile().toURI().toURL().toExternalForm()
 
 // open the page
 WebUI.openBrowser('')
-WebUI.setViewPortSize(800,600)
+WebUI.maximizeWindow()
 WebUI.navigateToUrl(url)
 
 // click the button
 TestObject button = makeTestObject("button", "//button[@id='dropdownMenuButton1']")
 WebUI.click(button)
 
-// make sure the input field is present, then type a text 'ba' into the input field
+// make sure the input field is present
 TestObject inputField = makeTestObject("inputField", "//input[@type='text']")
 WebUI.verifyElementPresent(inputField, 10)
 WebUI.delay(3)

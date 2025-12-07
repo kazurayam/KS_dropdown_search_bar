@@ -33,6 +33,7 @@ const handleInput = () => {
             link.classList.add("dropdown-item");
             link.href = "#";
             link.textContent = word;
+            link.onclick = handleSelection;
             listItem.appendChild(link);
             parentElement.appendChild(listItem);
         });
@@ -52,17 +53,18 @@ const handleInput = () => {
             link.classList.add("dropdown-item");
             link.href = "#";
             link.textContent = word;
-            link.addEventListener('click', handleSelection);
+            link.onclick = handleSelection;
             listItem.appendChild(link);
             parentElement.appendChild(listItem);
         });
     }
 }
 const handleSelection = (event) => {
+    console.log(event)
     event.preventDefault();
-    if (event.target.tagName === 'a') {
+    if (event.type === 'click') {
         const selectedValue =
-            event.target.textContent;
+            event.target.firstChild.textContent;
         document
             .getElementById('valueDisplay')
             .textContent = selectedValue;
