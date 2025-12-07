@@ -29,4 +29,13 @@ Just run the "Test Cases/TC1"
 
 1. The TC1 opes the HTML in a browser:
 
+![1_initial]()
+
+![2_button_was_clicked]()
+
+![3_filtering]()
+
+![4_selected]()
+
+![5_asserted]()
 
